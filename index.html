@@ -3,33 +3,48 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>HTML Tutorial - Basics</title>
+    <title>E-Commerce Management</title>
     <link rel="stylesheet" href="stylo.css" />
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet" />
 </head>
 <body>
 <div class="page-container">
+
+    <!-- Heading using section and article -->
+    <section style="background: linear-gradient(to right, #1f4037, #99f2c8); padding: 1rem 0;">
+        <article style="text-align: center;">
+            <h1 style="color: white; font-size: 2.5rem; margin: 0;">E-COMMERCE  MANAGEMENT</h1>
+        </article>
+    </section>
+
+    <!-- Navigation -->
     <header>
-        <nav class="active">
-            <a href="index.html">BASICS</a>
+        <nav>
+            <a href="index.html" class="active">Basics</a>
             <a href="geolocation.html">Geolocation</a>
             <a href="web_worker.html">WebWorkers</a>
             <a href="semantics.html">Semantics</a>
+            <a href="vendor.html">Vendor</a>
+            <a href="product.html">Product</a>
+            <a href="storage.html">Storage</a>
         </nav>
     </header>
 
+    <!-- Content Cards -->
     <main class="flex-container">
         <div class="card">
             <h2>Paragraph Tag</h2>
-            <p>The &lt;p&gt; tag defines a paragraph in HTML. It creates a block of text with margin.The <p> tag in HTML is used to define a paragraph of text. It automatically adds space above and below the content, making it easier to structure readable blocks of information on a webpage. Paragraphs are essential for organizing text content clearly and semantically. You can apply styles like font size, color, alignment, and spacing using CSS. Though the tag itself doesn’t have required attributes, it supports global ones like id, class, and style. It’s a block-level element, meaning it takes the full width available. Proper use improves both visual presentation and accessibility.</p>
+            <p>
+                The &lt;p&gt; tag in HTML is used to define a paragraph of text. It automatically adds space above and below the content, making it easier to structure readable blocks of information. It’s a block-level element and improves visual presentation and accessibility.
+            </p>
         </div>
 
         <div class="card">
             <h2>Anchor Tag</h2>
-            <p>The &lt;a&gt; tag is used to define hyperlinks.</p>
-            <a href="https://www.example.com">Visit Example  <a>     tag in HTML is used to create hyperlinks, allowing users to navigate from one page to another. It is one of the most commonly used tags for linking documents, websites, downloads, or email addresses. The primary attribute is href, which specifies the destination URL. You can also use target="_blank" to open the link in a new tab. Additional attributes like title provide hover text, and rel improves security and SEO. Proper use of the anchor tag improves user navigation and accessibility on websites, making it a core element of web development.
-
-            </a>
+            <p>
+                The &lt;a&gt; tag is used to create hyperlinks, allowing users to navigate across pages or websites. The `href` attribute defines the target URL, and it may include `target="_blank"` for opening in a new tab.
+            </p>
+            <a href="https://www.example.com" target="_blank">Visit Example</a>
         </div>
 
         <div class="card heading-demo">
@@ -42,9 +57,10 @@
         </div>
     </main>
 
+    <!-- Footer -->
     <footer>
-        <p>DEVELOPED by Shubham Swaraj | Email: shubhamswaraj@example.com</p>
+        <p>Made by Shubham Swaraj | Email: shubhamswaraj@example.com</p>
     </footer>
 </div>
 </body>
-</htm
+</html>

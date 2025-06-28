@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Feedback Storage</title>
+  <link rel="stylesheet" href="stylo.css" />
+</head>
+<body>
+<div class="page-container">
+  <header>
+    <nav>
+      <a href="index.html">Basics</a>
+      <a href="geolocation.html">Geolocation</a>
+      <a href="web_worker.html">WebWorkers</a>
+      <a href="semantics.html">Semantics</a>
+      <a href="vendor.html">Vendor</a>
+      <a href="product.html">Product</a>
+      <a href="storage.html" >STORAGE</a>
+    </nav>
+  </header>
+
+  <main class="flex-container">
+    <div class="card" style="width: 90%;">
+      <h2>Leave Your Feedback</h2>
+      <form id="feedbackForm">
+        <input type="text" id="name" placeholder="Your Name" required style="margin-bottom:10px; width: 100%; padding: 8px;" />
+        <textarea id="comment" placeholder="Your Comment" required style="width: 100%; height: 80px; padding: 8px;"></textarea>
+        <br><br>
+        <button type="submit">Submit Feedback</button>
+      </form>
+
+      <div id="feedbackDisplay" style="margin-top: 30px;">
+        <h3>Previous Feedback</h3>
+        <ul id="feedbackList" style="list-style: none; padding-left: 0;"></ul>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>DEVELOPED by Shubham Swaraj | Email: shubhamswaraj1508@gmail.com</p>
+  </footer>
+</div>
+
+<script>
+  const form = document.getElementById('feedbackForm');
+  const list = document.getElementById('feedbackList');
+
+  function loadFeedback() {
+    list.innerHTML = '';
+    const feedbacks = JSON.parse(localStorage.getItem('feedbacks')) || [];
+    feedbacks.forEach(item => {
+      const li = document.createElement('li');
+      li.innerHTML = `<strong>${item.name}</strong>: ${item.comment}`;
+      li.style.marginBottom = "10px";
+      list.appendChild(li);
+    });
+  }
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const comment = document.getElementById('comment').value.trim();
+
+    if (name && comment) {
+      const feedbacks = JSON.parse(localStorage.getItem('feedbacks')) || [];
+      feedbacks.push({ name, comment });
+      localStorage.setItem('feedbacks', JSON.stringify(feedbacks));
+      form.reset();
+      loadFeedback();
+    }
+  });
+
+  window.onload = loadFeedback;
+</script>
+</body>
+</html>
