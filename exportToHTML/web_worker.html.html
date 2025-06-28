@@ -1,0 +1,92 @@
+<html>
+<head>
+<title>web_worker.html</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #d5b778;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bababa;}
+.s3 { color: #6aab73;}
+.s4 { color: #2aacb8;}
+.s5 { color: #56a8f5;}
+.s6 { color: #cf8e6d;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+web_worker.html</font>
+</center></td></tr></table>
+<pre><span class="s0">&lt;!DOCTYPE </span><span class="s2">html</span><span class="s0">&gt;</span>
+<span class="s0">&lt;html </span><span class="s2">lang</span><span class="s3">=&quot;en&quot;</span><span class="s0">&gt;</span>
+<span class="s0">&lt;head&gt;</span>
+  <span class="s0">&lt;meta </span><span class="s2">charset</span><span class="s3">=&quot;UTF-8&quot; </span><span class="s0">/&gt;</span>
+  <span class="s0">&lt;meta </span><span class="s2">name</span><span class="s3">=&quot;viewport&quot; </span><span class="s2">content</span><span class="s3">=&quot;width=device-width, initial-scale=1.0&quot; </span><span class="s0">/&gt;</span>
+  <span class="s0">&lt;title&gt;</span><span class="s1">Web Workers</span><span class="s0">&lt;/title&gt;</span>
+  <span class="s0">&lt;link </span><span class="s2">rel</span><span class="s3">=&quot;stylesheet&quot; </span><span class="s2">href</span><span class="s3">=&quot;stylo.css&quot; </span><span class="s0">/&gt;</span>
+  <span class="s0">&lt;link </span><span class="s2">href</span><span class="s3">=&quot;https://fonts.googleapis.com/css2?family=DM+Serif+Display&amp;display=swap&quot; </span><span class="s2">rel</span><span class="s3">=&quot;stylesheet&quot; </span><span class="s0">/&gt;</span>
+<span class="s0">&lt;/head&gt;</span>
+<span class="s0">&lt;body&gt;</span>
+<span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;page-container&quot;</span><span class="s0">&gt;</span>
+  <span class="s0">&lt;header&gt;</span>
+    <span class="s0">&lt;nav </span><span class="s2">class</span><span class="s3">=&quot;active&quot;</span><span class="s0">&gt;</span>
+      <span class="s0">&lt;a </span><span class="s2">href</span><span class="s3">=&quot;index.html&quot;</span><span class="s0">&gt;</span><span class="s1">basic</span><span class="s0">&lt;/a&gt;</span>
+      <span class="s0">&lt;a </span><span class="s2">href</span><span class="s3">=&quot;product.html&quot;</span><span class="s0">&gt;</span><span class="s1">product</span><span class="s0">&lt;/a&gt;</span>
+      <span class="s0">&lt;a </span><span class="s2">href</span><span class="s3">=&quot;vendor.html&quot;</span><span class="s0">&gt;</span><span class="s1">vendor </span><span class="s0">&lt;/a&gt;</span>
+      <span class="s0">&lt;a </span><span class="s2">href</span><span class="s3">=&quot;geolocation.html&quot;</span><span class="s0">&gt;</span><span class="s1">GeolocatioRn</span><span class="s0">&lt;/a&gt;</span>
+      <span class="s0">&lt;a </span><span class="s2">href</span><span class="s3">=&quot;web_worker.html&quot;</span><span class="s0">&gt;</span><span class="s1">WEBWORKER</span><span class="s0">&lt;/a&gt;</span>
+      <span class="s0">&lt;a </span><span class="s2">href</span><span class="s3">=&quot;semantics.html&quot;</span><span class="s0">&gt;</span><span class="s1">Semantics</span><span class="s0">&lt;/a&gt;</span>
+      <span class="s0">&lt;a </span><span class="s2">href</span><span class="s3">=&quot;storage.html&quot;</span><span class="s0">&gt;</span><span class="s1">Storage</span><span class="s0">&lt;/a&gt;</span>
+
+
+    <span class="s0">&lt;/nav&gt;</span>
+  <span class="s0">&lt;/header&gt;</span>
+
+  <span class="s0">&lt;main </span><span class="s2">class</span><span class="s3">=&quot;flex-container&quot;</span><span class="s0">&gt;</span>
+    <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;card&quot; </span><span class="s2">style</span><span class="s3">=&quot;</span><span class="s2">width</span><span class="s1">: </span><span class="s4">90</span><span class="s1">%; </span><span class="s2">max-width</span><span class="s1">: </span><span class="s4">600</span><span class="s3">px</span><span class="s1">; </span><span class="s2">text-align</span><span class="s1">: </span><span class="s3">center</span><span class="s1">;</span><span class="s3">&quot;</span><span class="s0">&gt;</span>
+      <span class="s0">&lt;h2&gt;</span><span class="s1">Web Worker Example</span><span class="s0">&lt;/h2&gt;</span>
+      <span class="s0">&lt;p&gt;</span><span class="s1">This demo uses a Web Worker to perform a time-consuming task (like counting) without freezing the UI.</span><span class="s0">&lt;/p&gt;</span>
+      <span class="s0">&lt;button </span><span class="s2">onclick</span><span class="s3">=&quot;</span><span class="s1">startWorker()</span><span class="s3">&quot; </span><span class="s2">style</span><span class="s3">=&quot;</span><span class="s2">padding</span><span class="s1">: </span><span class="s4">10</span><span class="s3">px </span><span class="s4">20</span><span class="s3">px</span><span class="s1">; </span><span class="s2">font-size</span><span class="s1">: </span><span class="s4">16</span><span class="s3">px</span><span class="s1">; </span><span class="s2">border-radius</span><span class="s1">: </span><span class="s4">10</span><span class="s3">px</span><span class="s1">; </span><span class="s2">border</span><span class="s1">: </span><span class="s3">none</span><span class="s1">; </span><span class="s2">background</span><span class="s1">: </span><span class="s0">linear-gradient</span><span class="s1">(</span><span class="s4">135</span><span class="s3">deg</span><span class="s1">, </span><span class="s5">#6dd5fa</span><span class="s1">, </span><span class="s5">#2980b9</span><span class="s1">); </span><span class="s2">color</span><span class="s1">: </span><span class="s3">white</span><span class="s1">; </span><span class="s2">box-shadow</span><span class="s1">: </span><span class="s4">0 4</span><span class="s3">px </span><span class="s4">12</span><span class="s3">px </span><span class="s0">rgba</span><span class="s1">(</span><span class="s4">0</span><span class="s1">,</span><span class="s4">0</span><span class="s1">,</span><span class="s4">0</span><span class="s1">,</span><span class="s4">0.2</span><span class="s1">); </span><span class="s2">cursor</span><span class="s1">: </span><span class="s3">pointer</span><span class="s1">; </span><span class="s2">transition</span><span class="s1">: </span><span class="s4">0.3</span><span class="s3">s</span><span class="s1">;</span><span class="s3">&quot;</span><span class="s0">&gt;</span><span class="s1">Start Counting</span><span class="s0">&lt;/button&gt;</span>
+      <span class="s0">&lt;p </span><span class="s2">id</span><span class="s3">=&quot;output&quot; </span><span class="s2">style</span><span class="s3">=&quot;</span><span class="s2">margin-top</span><span class="s1">: </span><span class="s4">20</span><span class="s3">px</span><span class="s1">; </span><span class="s2">font-weight</span><span class="s1">: </span><span class="s3">bold</span><span class="s1">;</span><span class="s3">&quot;</span><span class="s0">&gt;&lt;/p&gt;</span>
+      <span class="s0">&lt;div </span><span class="s2">id</span><span class="s3">=&quot;result&quot; </span><span class="s2">style</span><span class="s3">=&quot;</span><span class="s2">margin-top</span><span class="s1">: </span><span class="s4">20</span><span class="s3">px</span><span class="s1">; </span><span class="s2">padding</span><span class="s1">: </span><span class="s4">10</span><span class="s3">px</span><span class="s1">; </span><span class="s2">background</span><span class="s1">: </span><span class="s0">rgba</span><span class="s1">(</span><span class="s4">255</span><span class="s1">,</span><span class="s4">255</span><span class="s1">,</span><span class="s4">255</span><span class="s1">,</span><span class="s4">0.2</span><span class="s1">); </span><span class="s2">border-radius</span><span class="s1">: </span><span class="s4">8</span><span class="s3">px</span><span class="s1">; </span><span class="s2">box-shadow</span><span class="s1">: </span><span class="s4">0 4</span><span class="s3">px </span><span class="s4">10</span><span class="s3">px </span><span class="s0">rgba</span><span class="s1">(</span><span class="s4">0</span><span class="s1">,</span><span class="s4">0</span><span class="s1">,</span><span class="s4">0</span><span class="s1">,</span><span class="s4">0.1</span><span class="s1">); </span><span class="s2">font-size</span><span class="s1">: </span><span class="s4">18</span><span class="s3">px</span><span class="s1">;</span><span class="s3">&quot;</span><span class="s0">&gt;&lt;/div&gt;</span>
+    <span class="s0">&lt;/div&gt;</span>
+  <span class="s0">&lt;/main&gt;</span>
+
+  <span class="s0">&lt;footer&gt;</span>
+    <span class="s0">&lt;p&gt;</span><span class="s1">DEVELOPED by Shubham Swaraj | Email: shubhamswaraj1508@gmail.com</span><span class="s0">&lt;/p&gt;</span>
+  <span class="s0">&lt;/footer&gt;</span>
+
+  <span class="s0">&lt;script&gt;</span>
+    <span class="s6">let </span><span class="s1">workerBlob = </span><span class="s6">new </span><span class="s1">Blob([</span>
+      <span class="s3">`let i = 0; 
+        function timedCount() { 
+          i++; 
+          postMessage(&quot;Count: &quot; + i); 
+          setTimeout(timedCount, 1000); 
+        } 
+        timedCount();`</span>
+    <span class="s1">], { type: </span><span class="s3">&quot;application/javascript&quot; </span><span class="s1">});</span>
+
+    <span class="s6">let </span><span class="s1">worker;</span>
+    <span class="s6">function </span><span class="s1">startWorker() {</span>
+      <span class="s6">if </span><span class="s1">(</span><span class="s6">typeof </span><span class="s1">Worker !== </span><span class="s3">&quot;undefined&quot;</span><span class="s1">) {</span>
+        <span class="s6">if </span><span class="s1">(!worker) {</span>
+          <span class="s6">const </span><span class="s1">workerUrl = URL.createObjectURL(workerBlob);</span>
+          <span class="s1">worker = </span><span class="s6">new </span><span class="s1">Worker(workerUrl);</span>
+          <span class="s1">worker.onmessage = </span><span class="s6">function </span><span class="s1">(event) {</span>
+            <span class="s1">document.getElementById(</span><span class="s3">&quot;output&quot;</span><span class="s1">).textContent = event.data;</span>
+            <span class="s1">document.getElementById(</span><span class="s3">&quot;result&quot;</span><span class="s1">).textContent = event.data;</span>
+          <span class="s1">};</span>
+        <span class="s1">}</span>
+      <span class="s1">} </span><span class="s6">else </span><span class="s1">{</span>
+        <span class="s1">document.getElementById(</span><span class="s3">&quot;output&quot;</span><span class="s1">).textContent = </span><span class="s3">&quot;Web Workers not supported in this browser.&quot;</span><span class="s1">;</span>
+      <span class="s1">}</span>
+    <span class="s1">}</span>
+  <span class="s0">&lt;/script&gt;</span>
+<span class="s0">&lt;/div&gt;</span>
+<span class="s0">&lt;/body&gt;</span>
+<span class="s0">&lt;/html&gt;</span>
+</pre>
+</body>
+</html>

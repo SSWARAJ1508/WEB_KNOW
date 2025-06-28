@@ -1,0 +1,50 @@
+<html>
+<head>
+<title>script.js</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #6aab73;}
+.s4 { color: #7a7e85;}
+.s5 { color: #2aacb8;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+script.js</font>
+</center></td></tr></table>
+<pre><span class="s0">function </span><span class="s1">getLocation</span><span class="s2">() {</span>
+    <span class="s0">const </span><span class="s1">thumbnail </span><span class="s2">= </span><span class="s1">document</span><span class="s2">.</span><span class="s1">getElementById</span><span class="s2">(</span><span class="s3">&quot;map-thumbnail&quot;</span><span class="s2">);</span>
+    <span class="s0">const </span><span class="s1">iframe </span><span class="s2">= </span><span class="s1">document</span><span class="s2">.</span><span class="s1">getElementById</span><span class="s2">(</span><span class="s3">&quot;map-frame&quot;</span><span class="s2">);</span>
+    <span class="s0">const </span><span class="s1">resultBox </span><span class="s2">= </span><span class="s1">document</span><span class="s2">.</span><span class="s1">getElementById</span><span class="s2">(</span><span class="s3">&quot;geo-result&quot;</span><span class="s2">);</span>
+
+    <span class="s0">if </span><span class="s2">(</span><span class="s1">navigator</span><span class="s2">.</span><span class="s1">geolocation</span><span class="s2">) {</span>
+        <span class="s1">navigator</span><span class="s2">.</span><span class="s1">geolocation</span><span class="s2">.</span><span class="s1">getCurrentPosition</span><span class="s2">(</span>
+            <span class="s2">(</span><span class="s1">position</span><span class="s2">) =&gt; {</span>
+                <span class="s0">const </span><span class="s1">lat </span><span class="s2">= </span><span class="s1">position</span><span class="s2">.</span><span class="s1">coords</span><span class="s2">.</span><span class="s1">latitude</span><span class="s2">;</span>
+                <span class="s0">const </span><span class="s1">lon </span><span class="s2">= </span><span class="s1">position</span><span class="s2">.</span><span class="s1">coords</span><span class="s2">.</span><span class="s1">longitude</span><span class="s2">;</span>
+                <span class="s0">const </span><span class="s1">mapUrl </span><span class="s2">= </span><span class="s3">`https://maps.google.com/maps?q=</span><span class="s1">$</span><span class="s2">{</span><span class="s1">lat</span><span class="s2">}</span><span class="s3">,</span><span class="s1">$</span><span class="s2">{</span><span class="s1">lon</span><span class="s2">}</span><span class="s3">&amp;z=15&amp;output=embed`</span><span class="s2">;</span>
+
+                <span class="s4">// Hide thumbnail and show map</span>
+                <span class="s1">thumbnail</span><span class="s2">.</span><span class="s1">style</span><span class="s2">.</span><span class="s1">display </span><span class="s2">= </span><span class="s3">&quot;none&quot;</span><span class="s2">;</span>
+                <span class="s1">iframe</span><span class="s2">.</span><span class="s1">style</span><span class="s2">.</span><span class="s1">display </span><span class="s2">= </span><span class="s3">&quot;block&quot;</span><span class="s2">;</span>
+                <span class="s1">iframe</span><span class="s2">.</span><span class="s1">src </span><span class="s2">= </span><span class="s1">mapUrl</span><span class="s2">;</span>
+
+                <span class="s4">// Show coordinates</span>
+                <span class="s1">resultBox</span><span class="s2">.</span><span class="s1">innerHTML </span><span class="s2">= </span><span class="s3">`&lt;strong&gt;Latitude:&lt;/strong&gt; </span><span class="s1">$</span><span class="s2">{</span><span class="s1">lat</span><span class="s2">.</span><span class="s1">toFixed</span><span class="s2">(</span><span class="s5">4</span><span class="s2">)}</span><span class="s3">&lt;br&gt;&lt;strong&gt;Longitude:&lt;/strong&gt; </span><span class="s1">$</span><span class="s2">{</span><span class="s1">lon</span><span class="s2">.</span><span class="s1">toFixed</span><span class="s2">(</span><span class="s5">4</span><span class="s2">)}</span><span class="s3">`</span><span class="s2">;</span>
+            <span class="s2">},</span>
+            <span class="s2">(</span><span class="s1">error</span><span class="s2">) =&gt; {</span>
+                <span class="s1">resultBox</span><span class="s2">.</span><span class="s1">textContent </span><span class="s2">= </span><span class="s3">&quot;Error fetching location: &quot; </span><span class="s2">+ </span><span class="s1">error</span><span class="s2">.</span><span class="s1">message</span><span class="s2">;</span>
+            <span class="s2">}</span>
+        <span class="s2">);</span>
+    <span class="s2">} </span><span class="s0">else </span><span class="s2">{</span>
+        <span class="s1">resultBox</span><span class="s2">.</span><span class="s1">textContent </span><span class="s2">= </span><span class="s3">&quot;Geolocation is not supported by this browser.&quot;</span><span class="s2">;</span>
+    <span class="s2">}</span>
+<span class="s2">}</span>
+</pre>
+</body>
+</html>

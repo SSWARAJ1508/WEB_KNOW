@@ -1,0 +1,74 @@
+<html>
+<head>
+<title>geolocation.html</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #d5b778;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bababa;}
+.s3 { color: #6aab73;}
+.s4 { color: #2aacb8;}
+.s5 { color: #7a7e85;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+geolocation.html</font>
+</center></td></tr></table>
+<pre><span class="s0">&lt;!DOCTYPE </span><span class="s2">html</span><span class="s0">&gt;</span>
+<span class="s0">&lt;html </span><span class="s2">lang</span><span class="s3">=&quot;en&quot;</span><span class="s0">&gt;</span>
+<span class="s0">&lt;head&gt;</span>
+    <span class="s0">&lt;meta </span><span class="s2">charset</span><span class="s3">=&quot;UTF-8&quot; </span><span class="s0">/&gt;</span>
+    <span class="s0">&lt;meta </span><span class="s2">name</span><span class="s3">=&quot;viewport&quot; </span><span class="s2">content</span><span class="s3">=&quot;width=device-width, initial-scale=1.0&quot;</span><span class="s0">/&gt;</span>
+    <span class="s0">&lt;title&gt;</span><span class="s1">Geolocation Example</span><span class="s0">&lt;/title&gt;</span>
+    <span class="s0">&lt;link </span><span class="s2">rel</span><span class="s3">=&quot;stylesheet&quot; </span><span class="s2">href</span><span class="s3">=&quot;stylo.css&quot; </span><span class="s0">/&gt;</span>
+    <span class="s0">&lt;link </span><span class="s2">href</span><span class="s3">=&quot;https://fonts.googleapis.com/css2?family=DM+Serif+Display&amp;display=swap&quot; </span><span class="s2">rel</span><span class="s3">=&quot;stylesheet&quot; </span><span class="s0">/&gt;</span>
+<span class="s0">&lt;/head&gt;</span>
+<span class="s0">&lt;body&gt;</span>
+<span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;page-container&quot;</span><span class="s0">&gt;</span>
+    <span class="s0">&lt;header&gt;</span>
+        <span class="s0">&lt;nav </span><span class="s2">class</span><span class="s3">=&quot;active&quot;</span><span class="s0">&gt;</span>
+            <span class="s0">&lt;a </span><span class="s2">href</span><span class="s3">=&quot;index.html&quot;</span><span class="s0">&gt;</span><span class="s1">basics</span><span class="s0">&lt;/a&gt;</span>
+            <span class="s0">&lt;a </span><span class="s2">href</span><span class="s3">=&quot;product.html&quot;</span><span class="s0">&gt;</span><span class="s1">product</span><span class="s0">&lt;/a&gt;</span>
+            <span class="s0">&lt;a </span><span class="s2">href</span><span class="s3">=&quot;vendor.html&quot;</span><span class="s0">&gt;</span><span class="s1">vendor </span><span class="s0">&lt;/a&gt;</span>
+            <span class="s0">&lt;a </span><span class="s2">href</span><span class="s3">=&quot;geolocation.html&quot;</span><span class="s0">&gt;</span><span class="s1">GEOLOCATION</span><span class="s0">&lt;/a&gt;</span>
+            <span class="s0">&lt;a </span><span class="s2">href</span><span class="s3">=&quot;web_worker.html&quot;</span><span class="s0">&gt;</span><span class="s1">WebWorkers</span><span class="s0">&lt;/a&gt;</span>
+            <span class="s0">&lt;a </span><span class="s2">href</span><span class="s3">=&quot;semantics.html&quot;</span><span class="s0">&gt;</span><span class="s1">Semantics</span><span class="s0">&lt;/a&gt;</span>
+            <span class="s0">&lt;a </span><span class="s2">href</span><span class="s3">=&quot;storage.html&quot;</span><span class="s0">&gt;</span><span class="s1">Storage</span><span class="s0">&lt;/a&gt;</span>
+
+
+        <span class="s0">&lt;/nav&gt;</span>
+    <span class="s0">&lt;/header&gt;</span>
+
+    <span class="s0">&lt;main </span><span class="s2">class</span><span class="s3">=&quot;flex-container&quot;</span><span class="s0">&gt;</span>
+        <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;card&quot; </span><span class="s2">style</span><span class="s3">=&quot;</span><span class="s2">width</span><span class="s1">: </span><span class="s4">90</span><span class="s1">%; </span><span class="s2">max-width</span><span class="s1">: </span><span class="s4">800</span><span class="s3">px</span><span class="s1">; </span><span class="s2">text-align</span><span class="s1">: </span><span class="s3">center</span><span class="s1">;</span><span class="s3">&quot;</span><span class="s0">&gt;</span>
+            <span class="s0">&lt;h2&gt;</span><span class="s1">CHECK YOUR LOCATION</span><span class="s0">&lt;/h2&gt;</span>
+            <span class="s0">&lt;p&gt;</span><span class="s1">Click the button below to fetch your current location and view it on the map.</span><span class="s0">&lt;/p&gt;</span>
+
+            <span class="s5">&lt;!-- Thumbnail shown before map --&gt;</span>
+            <span class="s0">&lt;img </span><span class="s2">id</span><span class="s3">=&quot;map-thumbnail&quot; </span><span class="s2">src</span><span class="s3">=&quot;loc.png&quot; </span><span class="s2">alt</span><span class="s3">=&quot;Map preview&quot; </span><span class="s2">style</span><span class="s3">=&quot;</span><span class="s2">width</span><span class="s1">: </span><span class="s4">80</span><span class="s1">%; </span><span class="s2">border-radius</span><span class="s1">: </span><span class="s4">12</span><span class="s3">px</span><span class="s1">; </span><span class="s2">box-shadow</span><span class="s1">: </span><span class="s4">0 4</span><span class="s3">px </span><span class="s4">12</span><span class="s3">px </span><span class="s0">rgba</span><span class="s1">(</span><span class="s4">0</span><span class="s1">,</span><span class="s4">0</span><span class="s1">,</span><span class="s4">0</span><span class="s1">,</span><span class="s4">0.2</span><span class="s1">); </span><span class="s2">margin-bottom</span><span class="s1">: </span><span class="s4">20</span><span class="s3">px</span><span class="s1">;</span><span class="s3">&quot; </span><span class="s0">/&gt;</span>
+
+            <span class="s5">&lt;!-- Google map iframe shown after clicking --&gt;</span>
+            <span class="s0">&lt;iframe </span><span class="s2">id</span><span class="s3">=&quot;map-frame&quot; </span><span class="s2">style</span><span class="s3">=&quot;</span><span class="s2">display</span><span class="s1">: </span><span class="s3">none</span><span class="s1">; </span><span class="s2">width</span><span class="s1">: </span><span class="s4">80</span><span class="s1">%; </span><span class="s2">height</span><span class="s1">: </span><span class="s4">400</span><span class="s3">px</span><span class="s1">; </span><span class="s2">border</span><span class="s1">: </span><span class="s3">none</span><span class="s1">; </span><span class="s2">border-radius</span><span class="s1">: </span><span class="s4">12</span><span class="s3">px</span><span class="s1">; </span><span class="s2">box-shadow</span><span class="s1">: </span><span class="s4">0 4</span><span class="s3">px </span><span class="s4">12</span><span class="s3">px </span><span class="s0">rgba</span><span class="s1">(</span><span class="s4">0</span><span class="s1">,</span><span class="s4">0</span><span class="s1">,</span><span class="s4">0</span><span class="s1">,</span><span class="s4">0.2</span><span class="s1">); </span><span class="s2">margin-bottom</span><span class="s1">: </span><span class="s4">20</span><span class="s3">px</span><span class="s1">;</span><span class="s3">&quot; </span><span class="s2">loading</span><span class="s3">=&quot;lazy&quot;</span><span class="s0">&gt;&lt;/iframe&gt;</span>
+
+            <span class="s5">&lt;!-- Location info output --&gt;</span>
+            <span class="s0">&lt;div </span><span class="s2">id</span><span class="s3">=&quot;geo-result&quot; </span><span class="s2">style</span><span class="s3">=&quot;</span><span class="s2">margin</span><span class="s1">: </span><span class="s4">10</span><span class="s3">px </span><span class="s4">0 20</span><span class="s3">px</span><span class="s1">; </span><span class="s2">font-size</span><span class="s1">: </span><span class="s4">18</span><span class="s3">px</span><span class="s1">;</span><span class="s3">&quot;</span><span class="s0">&gt;&lt;/div&gt;</span>
+
+            <span class="s5">&lt;!-- Location button --&gt;</span>
+            <span class="s0">&lt;button  </span><span class="s2">onclick</span><span class="s3">=&quot;</span><span class="s1">getLocation()</span><span class="s3">&quot;</span><span class="s0">&gt;</span><span class="s1">Get Location</span><span class="s0">&lt;/button&gt;</span>
+        <span class="s0">&lt;/div&gt;</span>
+    <span class="s0">&lt;/main&gt;</span>
+
+    <span class="s0">&lt;footer&gt;</span>
+        <span class="s0">&lt;p&gt;</span><span class="s1">DEVELOPED by Shubham Swaraj | Email: shubhamswaraj1508@gmail.com</span><span class="s0">&lt;/p&gt;</span>
+    <span class="s0">&lt;/footer&gt;</span>
+
+    <span class="s0">&lt;script </span><span class="s2">src</span><span class="s3">=&quot;script.js&quot;</span><span class="s0">&gt;&lt;/script&gt;</span>
+<span class="s0">&lt;/div&gt;</span>
+<span class="s0">&lt;/body&gt;</span>
+<span class="s0">&lt;/html&gt;</span>
+</pre>
+</body>
+</html>
